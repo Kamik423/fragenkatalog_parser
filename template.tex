@@ -1,0 +1,91 @@
+\documentclass[a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+
+\usepackage[margin=1cm]{geometry}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{longtable}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\usepackage[space, encoding, filenameencoding=utf8]{grffile}
+
+\setlist{nolistsep}
+\pagenumbering{gobble}
+
+\newcounter{QuestionChapter}
+\newcounter{QuestionIndex}
+
+\newcommand{\newChapter}{\addtocounter{QuestionChapter}{1}\setcounter{QuestionIndex}{1}\vspace{-5mm}}
+
+\newcommand{\widthHeading}{0.75cm}
+\newcommand{\widthText}{7.75cm}
+
+\newcommand{\marktop}{
+    \phantom{x}
+
+    \vspace{-2.5mm}
+}
+
+\newcommand{\todo}[1]{{\textcolor{red}{\textbf{\reflectbox{\textinterrobang} #1 \textinterrobang}}}}
+\newcommand{\erg}[1]{{\textcolor{blue}{\textbf{( #1 )}}}}
+
+% \let\tempone\enumerate
+% \let\temptwo\endenumerate
+% \renewenvironment{enumerate}{\tempone\setlength\itemsep{0em}}{\vspace{-4mm}\temptwo}
+% \let\temponea\itemize
+% \let\temptwoa\enditemize
+% \renewenvironment{itemize}{\temponea\setlength\itemsep{0em}}{\vspace{-4mm}\temptwoa}
+
+\newcommand{\lgo}[1] {
+    \begin{tabular}[t]{c}
+        \vspace{-3mm}\\{\Huge #1}\\
+        \theQuestionChapter.\theQuestionIndex
+    \end{tabular}
+}
+
+\newcommand{\editorsnote}[1]{
+    \vphantom{x}
+
+    {\footnotesize (Editor's note: #1.)}
+}
+
+\newcommand{\question}[2]{
+    \lgo{Q} & 
+    \marktop#1 \vspace{2mm}& 
+    \marktop#2 \vspace{2mm}& 
+    \lgo{A}\addtocounter{QuestionIndex}{1}
+    \\\hline
+}
+
+\begin{document}
+
+    \setlength{\abovedisplayskip}{0pt}
+    \setlength{\belowdisplayskip}{0pt}
+    \setlength{\abovedisplayshortskip}{0pt}
+    \setlength{\belowdisplayshortskip}{0pt}
+
+    \thispagestyle{empty}
+    \begin{longtable}{b{\widthHeading}
+                    >{\RaggedRight}p{\widthText}|
+                    >{\RaggedRight}p{\widthText}
+                    b{\widthHeading}
+                  }
+    \hline
+
+    % \newChapter
+    % \question{question}{answer}
+
+    <INSERT>
+
+    \end{longtable}
+
+\end{document}
